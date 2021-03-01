@@ -11,8 +11,8 @@ import { Vue, Component } from "vue-property-decorator";
 import PrefectureCheckBoxes from "@/components/PrefectureCheckBoxes.vue";
 import prefectureAPI from "@/api/prefecture";
 import Prefecture from "@/models/Prefecture.ts";
-import prefecture from "@/api/prefecture";
 import PrefectureCheckBoxParameter from "@/models/PrefectureCheckBoxParameter";
+import PrefecturePopulationComposition from "@/models/PrefecturePopulationComposition";
 
 @Component({
   components: {
@@ -21,13 +21,24 @@ import PrefectureCheckBoxParameter from "@/models/PrefectureCheckBoxParameter";
 })
 export default class PrefecturePage extends Vue {
   public prefectureList?: Prefecture[] = [];
+  public prefecturePopulationComposition?: PrefecturePopulationComposition;
 
   async created() {
-    this.prefectureList = await prefectureAPI.getPrefectureList();
+    try {
+      this.prefectureList = await prefectureAPI.getPrefectureList();
+    } catch (err) {
+      alert("都道府県一覧の取得に失敗しました");
+    }
   }
 
-  getPrefectureCode(value: PrefectureCheckBoxParameter) {
-    return value;
+  async getPrefectureCode(value: PrefectureCheckBoxParameter) {
+    try {
+      this.prefecturePopulationComposition = await prefectureAPI.getPrefecturePopulationComposition(
+        value.prefCode
+      );
+    } catch (err) {
+      alert("人口構成の取得に失敗しました");
+    }
   }
 }
 </script>

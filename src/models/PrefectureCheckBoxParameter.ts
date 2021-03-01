@@ -1,4 +1,4 @@
 export default interface PrefectureCheckBoxParameter {
-  preCode: number;
+  prefCode: number;
   checked: boolean;
 }
