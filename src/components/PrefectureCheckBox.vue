@@ -25,7 +25,11 @@ export default class PrefectureCheckBox extends Vue {
 
   @Emit("selectedPrefecture")
   selectedPrefecture() {
-    return { prefCode: this.prefCode, checked: this.value };
+    return {
+      prefCode: this.prefCode,
+      prefName: this.prefName,
+      checked: this.value,
+    };
   }
 }
 </script>
