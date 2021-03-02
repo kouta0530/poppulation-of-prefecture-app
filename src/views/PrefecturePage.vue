@@ -133,5 +133,8 @@ export default class PrefecturePage extends Vue {
 .container {
   margin: 0 auto;
   width: 550px;
+  min-height: 1000px;
+  margin-bottom: 5%;
+  border: 1px solid black;
 }
 </style>
