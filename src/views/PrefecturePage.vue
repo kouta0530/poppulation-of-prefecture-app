@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <prefecture-check-boxes
       :prefetureList="prefectureList"
       @selectedPrefecture="getPrefectureCode"
@@ -78,3 +78,9 @@ export default class PrefecturePage extends Vue {
   }
 }
 </script>
+<style>
+.container {
+  margin: 0 auto;
+  width: 550px;
+}
+</style>
