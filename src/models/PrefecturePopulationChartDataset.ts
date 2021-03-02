@@ -3,4 +3,5 @@ export default interface PrefecturePopulationChartDataset {
   data: number[];
   fill: boolean;
   lineTension: number;
+  borderColor: string;
 }
