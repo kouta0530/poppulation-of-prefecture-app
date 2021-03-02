@@ -1,5 +1,14 @@
 <template>
   <div class="container">
+    <prefecture-header
+      text="title"
+      size="32"
+      backgroundColor="gray"
+      width="550px"
+      height="100px"
+      display="flex"
+      justify="center"
+    ></prefecture-header>
     <prefecture-label label="都道府県" align="left"></prefecture-label>
     <prefecture-check-boxes
       :prefetureList="prefectureList"
@@ -13,6 +22,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import PrefectureHeader from "@/components/PrefectureHeader.vue";
 import PrefectureLabel from "@/components/PrefectureLabel.vue";
 import PrefectureCheckBoxes from "@/components/PrefectureCheckBoxes.vue";
 import PrefectureChartGroup from "@/components/PrefectureChartGroup.vue";
@@ -26,6 +36,7 @@ import { generateColorCode } from "@/common/color";
 
 @Component({
   components: {
+    PrefectureHeader,
     PrefectureLabel,
     PrefectureCheckBoxes,
     PrefectureChartGroup,
