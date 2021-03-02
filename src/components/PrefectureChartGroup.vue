@@ -25,7 +25,7 @@ export default class PrefectureChartGroup extends Vue {
 <style>
 .prefecture-chart-container {
   width: 500px;
-  height: 300px;
+  height: 200px;
   margin: 50px 0;
 }
 </style>
