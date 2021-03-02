@@ -17,6 +17,7 @@ import PrefectureCheckBoxParameter from "@/models/PrefectureCheckBoxParameter";
 import PrefecturePopulationComposition from "@/models/PrefecturePopulationComposition";
 import PrefecturePopulation from "@/models/PrefecturePopulation";
 import PrefecturePopulationChartData from "@/models/PrefecturePopulationChartData";
+import { generateColorCode } from "@/common/color";
 
 @Component({
   components: {
@@ -64,6 +65,7 @@ export default class PrefecturePage extends Vue {
       data: items.map((item) => item.value),
       fill: false,
       lineTension: 0,
+      borderColor: generateColorCode(),
     };
     this.prefecturePopulationChartData.labels = items.map((item) => item.year);
     this.prefecturePopulationChartData.datasets.push(dataset);
