@@ -1,6 +1,9 @@
 <template>
   <div class="prefecture-chart-container">
-    <prefecture-chart :chartData="upsertChartData"></prefecture-chart>
+    <prefecture-chart
+      :chartData="upsertChartData"
+      :options="options"
+    ></prefecture-chart>
   </div>
 </template>
 <script lang="ts">
@@ -16,6 +19,9 @@ import PrefecturePopulationChartData from "@/models/PrefecturePopulationChartDat
 export default class PrefectureChartGroup extends Vue {
   @Prop({})
   items?: PrefecturePopulationChartData;
+
+  @Prop()
+  options?: any;
 
   get upsertChartData() {
     return JSON.parse(JSON.stringify(this.items));

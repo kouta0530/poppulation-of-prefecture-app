@@ -1,14 +1,19 @@
 <template>
   <div class="container">
+    <prefecture-label label="都道府県" align="left"></prefecture-label>
     <prefecture-check-boxes
       :prefetureList="prefectureList"
       @selectedPrefecture="getPrefectureCode"
     ></prefecture-check-boxes>
-    <prefecture-chart-group :items="prefecturePopulationChartData" />
+    <prefecture-chart-group
+      :items="prefecturePopulationChartData"
+      :options="options"
+    />
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import PrefectureLabel from "@/components/PrefectureLabel.vue";
 import PrefectureCheckBoxes from "@/components/PrefectureCheckBoxes.vue";
 import PrefectureChartGroup from "@/components/PrefectureChartGroup.vue";
 import prefectureAPI from "@/api/prefecture";
@@ -21,6 +26,7 @@ import { generateColorCode } from "@/common/color";
 
 @Component({
   components: {
+    PrefectureLabel,
     PrefectureCheckBoxes,
     PrefectureChartGroup,
   },
@@ -31,6 +37,9 @@ export default class PrefecturePage extends Vue {
   public prefecturePopulationChartData: PrefecturePopulationChartData = {
     labels: [],
     datasets: [],
+  };
+  public options = {
+    maintainAspectRatio: false,
   };
 
   async created() {
