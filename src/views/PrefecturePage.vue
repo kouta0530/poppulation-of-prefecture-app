@@ -41,6 +41,10 @@ export default class PrefecturePage extends Vue {
   }
 
   async getPrefectureCode(value: PrefectureCheckBoxParameter) {
+    if (!value.checked) {
+      this.removePrefecturePopulationChartDataset(value.prefName);
+      return;
+    }
     try {
       const res = await prefectureAPI.getPrefecturePopulationComposition(
         value.prefCode
@@ -63,6 +67,12 @@ export default class PrefecturePage extends Vue {
     };
     this.prefecturePopulationChartData.labels = items.map((item) => item.year);
     this.prefecturePopulationChartData.datasets.push(dataset);
+  }
+
+  removePrefecturePopulationChartDataset(prefName: string) {
+    this.prefecturePopulationChartData.datasets = this.prefecturePopulationChartData.datasets.filter(
+      (item) => item.label != prefName
+    );
   }
 }
 </script>
