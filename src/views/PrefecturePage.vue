@@ -40,12 +40,20 @@ export default class PrefecturePage extends Vue {
   };
   public options = {
     maintainAspectRatio: false,
+    legend: {
+      position: "right",
+    },
     scales: {
       xAxes: [
         {
           display: true,
           gridLines: {
             display: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "年度",
+            fontSize: 18,
           },
         },
       ],
@@ -54,6 +62,11 @@ export default class PrefecturePage extends Vue {
           display: true,
           gridLines: {
             display: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "人口数",
+            fontSize: 18,
           },
         },
       ],
