@@ -40,6 +40,24 @@ export default class PrefecturePage extends Vue {
   };
   public options = {
     maintainAspectRatio: false,
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          gridLines: {
+            display: false,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          display: true,
+          gridLines: {
+            display: false,
+          },
+        },
+      ],
+    },
   };
 
   async created() {
