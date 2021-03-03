@@ -95,16 +95,21 @@ export default class PrefecturePage extends Vue {
     }
   }
 
-  async getPrefectureCode(value: PrefectureCheckBoxParameter) {
+  getPrefectureCode(value: PrefectureCheckBoxParameter) {
     if (!value.checked) {
       this.removePrefecturePopulationChartDataset(value.prefName);
       return;
     }
+
+    this.getPrefecturePopulation(value.prefCode, value.prefName);
+  }
+
+  async getPrefecturePopulation(prefCode: number, prefName: string) {
     try {
       const res = await prefectureAPI.getPrefecturePopulationComposition(
-        value.prefCode
+        prefCode
       );
-      this.addPrefecturePopulationChartDataset(value.prefName, res.data);
+      this.addPrefecturePopulationChartDataset(prefName, res.data);
     } catch (err) {
       alert("人口構成の取得に失敗しました");
     }
