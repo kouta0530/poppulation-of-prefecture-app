@@ -11,7 +11,6 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from "vue-property-decorator";
-import PrefectureCheckBoxParameter from "@/models/PrefectureCheckBoxParameter";
 
 @Component({})
 export default class PrefectureCheckBox extends Vue {
@@ -28,7 +27,7 @@ export default class PrefectureCheckBox extends Vue {
     return {
       prefCode: this.prefCode,
       prefName: this.prefName,
-      checked: this.value,
+      checked: this.value
     };
   }
 }

@@ -15,5 +15,5 @@ export default {
       `api/v1/population/composition/perYear?prefCode=${prefCode}`
     );
     return res["data"]["result"]["data"][0];
-  },
+  }
 };

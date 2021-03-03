@@ -5,7 +5,7 @@
       height: height,
       width: width,
       display: display,
-      'justify-content': justify,
+      'justify-content': justify
     }"
   >
     <prefecture-label
@@ -21,8 +21,8 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import PrefectureLabel from "@/components/PrefectureLabel.vue";
 @Component({
   components: {
-    PrefectureLabel,
-  },
+    PrefectureLabel
+  }
 })
 export default class PrefectureHeader extends Vue {
   @Prop()

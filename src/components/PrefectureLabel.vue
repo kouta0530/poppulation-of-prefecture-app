@@ -5,7 +5,7 @@
       :style="{
         'font-size': fontSize + 'px',
         color: color,
-        'text-align': alignChange,
+        'text-align': alignChange
       }"
     >
       {{ label }}
