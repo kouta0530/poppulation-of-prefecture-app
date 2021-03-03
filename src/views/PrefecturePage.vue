@@ -42,49 +42,49 @@ import { generateColorCode } from "@/common/color";
     PrefectureHeader,
     PrefectureLabel,
     PrefectureCheckBoxes,
-    PrefectureChartGroup,
-  },
+    PrefectureChartGroup
+  }
 })
 export default class PrefecturePage extends Vue {
   public prefectureList?: Prefecture[] = [];
   public prefecturePopulationChartData: PrefecturePopulationChartData = {
     labels: [],
-    datasets: [],
+    datasets: []
   };
   public options = {
     responsive: true,
     maintainAspectRatio: false,
     legend: {
-      position: "right",
+      position: "right"
     },
     scales: {
       xAxes: [
         {
           display: true,
           gridLines: {
-            display: false,
+            display: false
           },
           scaleLabel: {
             display: true,
             labelString: "年度",
-            fontSize: 18,
-          },
-        },
+            fontSize: 18
+          }
+        }
       ],
       yAxes: [
         {
           display: true,
           gridLines: {
-            display: false,
+            display: false
           },
           scaleLabel: {
             display: true,
             labelString: "人口数",
-            fontSize: 18,
-          },
-        },
-      ],
-    },
+            fontSize: 18
+          }
+        }
+      ]
+    }
   };
 
   async created() {
@@ -121,18 +121,18 @@ export default class PrefecturePage extends Vue {
   ) {
     const dataset = {
       label: prefName,
-      data: items.map((item) => item.value),
+      data: items.map(item => item.value),
       fill: false,
       lineTension: 0,
-      borderColor: generateColorCode(),
+      borderColor: generateColorCode()
     };
-    this.prefecturePopulationChartData.labels = items.map((item) => item.year);
+    this.prefecturePopulationChartData.labels = items.map(item => item.year);
     this.prefecturePopulationChartData.datasets.push(dataset);
   }
 
   removePrefecturePopulationChartDataset(prefName: string) {
     this.prefecturePopulationChartData.datasets = this.prefecturePopulationChartData.datasets.filter(
-      (item) => item.label != prefName
+      item => item.label != prefName
     );
   }
 }

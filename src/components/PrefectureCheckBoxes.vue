@@ -18,8 +18,8 @@ import PrefectureCheckBoxParameter from "@/models/PrefectureCheckBoxParameter";
 
 @Component({
   components: {
-    PrefectureCheckBox,
-  },
+    PrefectureCheckBox
+  }
 })
 export default class PrefectureCheckBoxes extends Vue {
   @Prop({ default: [] })
