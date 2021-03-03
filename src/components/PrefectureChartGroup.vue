@@ -7,21 +7,21 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
+import { Vue, Component, Prop } from "vue-property-decorator";
 import PrefectureChart from "@/components/PrefectureChart.vue";
 import PrefecturePopulationChartData from "@/models/PrefecturePopulationChartData";
 
 @Component({
   components: {
-    PrefectureChart,
-  },
+    PrefectureChart
+  }
 })
 export default class PrefectureChartGroup extends Vue {
   @Prop({})
   items?: PrefecturePopulationChartData;
 
   @Prop()
-  options?: any;
+  options?: Chart.ChartOptions;
 
   get upsertChartData() {
     return JSON.parse(JSON.stringify(this.items));
