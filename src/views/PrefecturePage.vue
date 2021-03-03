@@ -1,14 +1,29 @@
 <template>
-  <div>
+  <div class="container">
+    <prefecture-header
+      text="title"
+      size="32"
+      backgroundColor="gray"
+      width="550px"
+      height="100px"
+      display="flex"
+      justify="center"
+    ></prefecture-header>
+    <prefecture-label label="都道府県" align="left"></prefecture-label>
     <prefecture-check-boxes
       :prefetureList="prefectureList"
       @selectedPrefecture="getPrefectureCode"
     ></prefecture-check-boxes>
-    <prefecture-chart-group :items="prefecturePopulationChartData" />
+    <prefecture-chart-group
+      :items="prefecturePopulationChartData"
+      :options="options"
+    />
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import PrefectureHeader from "@/components/PrefectureHeader.vue";
+import PrefectureLabel from "@/components/PrefectureLabel.vue";
 import PrefectureCheckBoxes from "@/components/PrefectureCheckBoxes.vue";
 import PrefectureChartGroup from "@/components/PrefectureChartGroup.vue";
 import prefectureAPI from "@/api/prefecture";
@@ -21,6 +36,8 @@ import { generateColorCode } from "@/common/color";
 
 @Component({
   components: {
+    PrefectureHeader,
+    PrefectureLabel,
     PrefectureCheckBoxes,
     PrefectureChartGroup,
   },
@@ -31,6 +48,40 @@ export default class PrefecturePage extends Vue {
   public prefecturePopulationChartData: PrefecturePopulationChartData = {
     labels: [],
     datasets: [],
+  };
+  public options = {
+    maintainAspectRatio: false,
+    legend: {
+      position: "right",
+    },
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          gridLines: {
+            display: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "年度",
+            fontSize: 18,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          display: true,
+          gridLines: {
+            display: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "人口数",
+            fontSize: 18,
+          },
+        },
+      ],
+    },
   };
 
   async created() {
@@ -78,3 +129,12 @@ export default class PrefecturePage extends Vue {
   }
 }
 </script>
+<style>
+.container {
+  margin: 0 auto;
+  width: 550px;
+  min-height: 1000px;
+  margin-bottom: 5%;
+  border: 1px solid black;
+}
+</style>

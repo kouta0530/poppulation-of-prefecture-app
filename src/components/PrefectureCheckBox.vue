@@ -35,7 +35,7 @@ export default class PrefectureCheckBox extends Vue {
 </script>
 <style>
 .prefecture-check-box {
-  font-size: 24px;
+  font-size: 18px;
   margin: 0 5px;
 }
 </style>

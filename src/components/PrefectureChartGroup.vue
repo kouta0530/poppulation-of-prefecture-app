@@ -1,6 +1,9 @@
 <template>
   <div class="prefecture-chart-container">
-    <prefecture-chart :chartData="upsertChartData"></prefecture-chart>
+    <prefecture-chart
+      :chartData="upsertChartData"
+      :options="options"
+    ></prefecture-chart>
   </div>
 </template>
 <script lang="ts">
@@ -17,6 +20,9 @@ export default class PrefectureChartGroup extends Vue {
   @Prop({})
   items?: PrefecturePopulationChartData;
 
+  @Prop()
+  options?: any;
+
   get upsertChartData() {
     return JSON.parse(JSON.stringify(this.items));
   }
@@ -25,7 +31,7 @@ export default class PrefectureChartGroup extends Vue {
 <style>
 .prefecture-chart-container {
   width: 500px;
-  height: 300px;
+  height: 200px;
   margin: 50px 0;
 }
 </style>
