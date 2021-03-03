@@ -33,7 +33,6 @@ import PrefectureChartGroup from "@/components/PrefectureChartGroup.vue";
 import prefectureAPI from "@/api/prefecture";
 import Prefecture from "@/models/Prefecture.ts";
 import PrefectureCheckBoxParameter from "@/models/PrefectureCheckBoxParameter";
-import PrefecturePopulationComposition from "@/models/PrefecturePopulationComposition";
 import PrefecturePopulation from "@/models/PrefecturePopulation";
 import PrefecturePopulationChartData from "@/models/PrefecturePopulationChartData";
 import { generateColorCode } from "@/common/color";
@@ -48,7 +47,6 @@ import { generateColorCode } from "@/common/color";
 })
 export default class PrefecturePage extends Vue {
   public prefectureList?: Prefecture[] = [];
-  public prefecturePopulationComposition?: PrefecturePopulationComposition;
   public prefecturePopulationChartData: PrefecturePopulationChartData = {
     labels: [],
     datasets: [],
@@ -97,16 +95,21 @@ export default class PrefecturePage extends Vue {
     }
   }
 
-  async getPrefectureCode(value: PrefectureCheckBoxParameter) {
+  getPrefectureCode(value: PrefectureCheckBoxParameter) {
     if (!value.checked) {
       this.removePrefecturePopulationChartDataset(value.prefName);
       return;
     }
+
+    this.getPrefecturePopulation(value.prefCode, value.prefName);
+  }
+
+  async getPrefecturePopulation(prefCode: number, prefName: string) {
     try {
       const res = await prefectureAPI.getPrefecturePopulationComposition(
-        value.prefCode
+        prefCode
       );
-      this.addPrefecturePopulationChartDataset(value.prefName, res[0].data);
+      this.addPrefecturePopulationChartDataset(prefName, res.data);
     } catch (err) {
       alert("人口構成の取得に失敗しました");
     }
