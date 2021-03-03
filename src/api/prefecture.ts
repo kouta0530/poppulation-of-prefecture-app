@@ -14,6 +14,6 @@ export default {
     const res = await axios.get(
       `api/v1/population/composition/perYear?prefCode=${prefCode}`
     );
-    return res["data"]["result"]["data"];
+    return res["data"]["result"]["data"][0];
   },
 };
