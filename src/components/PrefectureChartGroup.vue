@@ -32,6 +32,13 @@ export default class PrefectureChartGroup extends Vue {
 .prefecture-chart-container {
   width: 500px;
   height: 200px;
-  margin: 50px 0;
+  margin: 50px auto;
+}
+
+@media screen and (max-width: 678px) {
+  .prefecture-chart-container {
+    width: 100%;
+    height: auto;
+  }
 }
 </style>

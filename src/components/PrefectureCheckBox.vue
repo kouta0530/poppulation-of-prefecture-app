@@ -38,4 +38,11 @@ export default class PrefectureCheckBox extends Vue {
   font-size: 18px;
   margin: 0 5px;
 }
+
+@media screen and (max-width: 678px) {
+  .prefecture-check-box {
+    font-size: 22px;
+    width: 90px;
+  }
+}
 </style>

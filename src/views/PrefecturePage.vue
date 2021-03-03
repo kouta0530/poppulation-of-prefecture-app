@@ -4,12 +4,16 @@
       text="title"
       size="32"
       backgroundColor="gray"
-      width="550px"
+      width="100%"
       height="100px"
       display="flex"
       justify="center"
     ></prefecture-header>
-    <prefecture-label label="都道府県" align="left"></prefecture-label>
+    <prefecture-label
+      label="都道府県"
+      size="16"
+      align="left"
+    ></prefecture-label>
     <prefecture-check-boxes
       :prefetureList="prefectureList"
       @selectedPrefecture="getPrefectureCode"
@@ -50,6 +54,7 @@ export default class PrefecturePage extends Vue {
     datasets: [],
   };
   public options = {
+    responsive: true,
     maintainAspectRatio: false,
     legend: {
       position: "right",
@@ -136,5 +141,11 @@ export default class PrefecturePage extends Vue {
   min-height: 1000px;
   margin-bottom: 5%;
   border: 1px solid black;
+}
+
+@media screen and (max-width: 678px) {
+  .container {
+    width: 100%;
+  }
 }
 </style>
