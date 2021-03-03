@@ -40,6 +40,13 @@ export default class PrefectureCheckBoxes extends Vue {
 }
 
 .prefecture-check-box {
-  margin: 0 5px;
+  margin: 0 16px;
+}
+
+@media screen and (max-width: 678px) {
+  .prefecture-check-boxes {
+    width: 70%;
+    margin: 0 auto;
+  }
 }
 </style>
