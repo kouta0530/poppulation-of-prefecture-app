@@ -1,4 +1,4 @@
-export default interface PrefecturePopulationComposition {
+export default interface PrefecturePopulation {
   year: number;
   value: number;
 }
